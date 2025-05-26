@@ -322,7 +322,7 @@ class CarouselSliderState extends State<CarouselSlider>
         int currentPage = getRealIndex(index + carouselState!.initialPage,
             carouselState!.realPage, widget.itemCount);
         if (widget.options.onPageChanged != null) {
-          widget.options.onPageChanged!(currentPage, mode);
+          widget.options.onPageChanged!(currentPage, mode, index);
         }
       },
       itemBuilder: (BuildContext context, int idx) {

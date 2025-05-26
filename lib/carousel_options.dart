@@ -72,7 +72,8 @@ class CarouselOptions {
   final Axis scrollDirection;
 
   /// Called whenever the page in the center of the viewport changes.
-  final Function(int index, CarouselPageChangedReason reason)? onPageChanged;
+  final Function(int index, CarouselPageChangedReason reason, int realIndex)?
+      onPageChanged;
 
   /// Called whenever the carousel is scrolled
   final ValueChanged<double?>? onScrolled;
@@ -176,7 +177,8 @@ class CarouselOptions {
           Duration? autoPlayAnimationDuration,
           Curve? autoPlayCurve,
           bool? enlargeCenterPage,
-          Function(int index, CarouselPageChangedReason reason)? onPageChanged,
+          Function(int index, CarouselPageChangedReason reason, int realIndex)?
+              onPageChanged,
           ValueChanged<double?>? onScrolled,
           ScrollPhysics? scrollPhysics,
           bool? pageSnapping,
