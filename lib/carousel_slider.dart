@@ -301,15 +301,13 @@ class CarouselSliderState extends State<CarouselSlider>
   @override
   Widget build(BuildContext context) {
     return Listener(
-      // Listen for pointer signals (like scroll wheel events)
       onPointerSignal: (pointerSignal) {
         if (pointerSignal is PointerScrollEvent &&
             carouselState != null &&
-            carouselState?.pageController != null) {
-          // Invert dy if needed depending on desired behavior.
+            carouselState?.pageController != null &&
+            carouselState?.options.scrollDirection == Axis.horizontal) {
           final newOffset = carouselState!.pageController!.offset +
               pointerSignal.scrollDelta.dy;
-          // Use jumpTo for instantaneous change (or animate if you prefer)
           carouselState!.pageController!.jumpTo(
             newOffset.clamp(
               carouselState!.pageController!.position.minScrollExtent,
